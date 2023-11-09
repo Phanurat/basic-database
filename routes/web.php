@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+#import User
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        #Call User from Model Users
+        $users=User::all();
+        return view('dashboard', compact('users'));
     })->name('dashboard');
 });
