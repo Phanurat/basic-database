@@ -1,0 +1,11 @@
+#install jetstream
+composer require laravel/jetstream
+
+#install livewire
+php artisan jetstream:install livewire
+
+#install database
+php artisan migrate
+
+#install run script
+npm install && npm run dev
