@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+#Import DB
+use Illuminate\Support\Facades\DB;
+
 #import User
 use App\Models\User;
 
@@ -26,7 +30,10 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         #Call User from Model Users
-        $users=User::all();
+        //$users=User::all();
+
+        #Query Builder Laravel
+        $users = DB::table('users')->get();
         return view('dashboard', compact('users'));
     })->name('dashboard');
 });
